@@ -17,7 +17,7 @@ public class Gal_NasdaqServlet extends HttpServlet {
 		double pi;
 		
 		radius=50;
-		pi=1.4;
+		pi=3.14;
 		double result1= radius * pi;
 		
 		String line1= new String ("<h1> Calculation 1: Area of circle with radius: "+radius+" * "+pi+" = "+result1+" </h1>");	
@@ -27,7 +27,7 @@ public class Gal_NasdaqServlet extends HttpServlet {
 			
 		opposite=30;
 		hypotenuse=50;
-		float result2= opposite / hypotenuse ;
+		double result2= (double)(opposite / hypotenuse) ;
 		
 		String line2= new String ("<h1> Calculation 2: Length of opposite where angle B is 30 degrees and Hypotenuse length is 50 cm is: "+opposite+" / "+hypotenuse+" = "+result2+"  cm </h1>");	
 		
@@ -36,7 +36,7 @@ public class Gal_NasdaqServlet extends HttpServlet {
 		
 		base=20;
 		exp=13;
-		double result3= base ^ exp;
+		double result3= java.lang.Math.pow(20, 13);
 		
 		String line3= new String ("<h1> Calculation 3: Power of 20 with exp of 13 is: "+base+" ^ "+exp+" = "+result3+"  cm </h1>");	
 		
