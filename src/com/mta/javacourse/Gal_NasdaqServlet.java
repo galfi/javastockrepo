@@ -1,7 +1,7 @@
 package com.mta.javacourse;
 import java.io.IOException;
-import javax.servlet.http.*;
 
+import javax.servlet.http.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,19 +17,23 @@ public class Gal_NasdaqServlet extends HttpServlet {
 		double pi;
 		
 		radius=50;
-		pi=3.14;
-		double result1= radius * pi;
+		pi=Math.PI;
+		double result1= radius * radius * pi;
 		
-		String line1= new String ("<h1> Calculation 1: Area of circle with radius: "+radius+" * "+pi+" = "+result1+" </h1>");	
+		String line1= new String ("<h1> Calculation 1: Area of circle with radius: "+radius+" * "+radius+" * "+pi+" = "+result1+" </h1>");	
 		
 		double opposite;
 		double hypotenuse;
+		double result2;
+		double B=30;
+		double B_radian= Math.toRadians(B);
 			
-		opposite=30;
 		hypotenuse=50;
-		double result2= (double)(opposite / hypotenuse) ;
+		opposite=hypotenuse * Math.sin(B_radian);
 		
-		String line2= new String ("<h1> Calculation 2: Length of opposite where angle B is 30 degrees and Hypotenuse length is 50 cm is: "+opposite+" / "+hypotenuse+" = "+result2+"  cm </h1>");	
+		result2=opposite;
+		
+		String line2= new String ("<h1> Calculation 2: Length of opposite where angle B is 30 degrees and Hypotenuse length is 50 cm is: "+opposite+" / "+hypotenuse+" = "+result2+"  radians </h1>");	
 		
 		double base;
 		double exp;
@@ -43,6 +47,11 @@ public class Gal_NasdaqServlet extends HttpServlet {
 		String resultStr= line1 + "<br>" + line2 + "<br>" +line3;
 		resp.getWriter().println (resultStr);
 		
+		
+	}
+
+	private void toRadians(double result2) {
+		// TODO Auto-generated method stub
 		
 	}
 }
