@@ -5,12 +5,12 @@ xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet>
-		<servlet-name>AdvancedMath</servlet-name>
-		<servlet-class>com.mta.javacourse.AdvancedMath</servlet-class>
+		<servlet-name>Gal_Nasdaq</servlet-name>
+		<servlet-class>com.mta.javacourse.Gal_Nasdaq</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>AdvancedMath</servlet-name>
-		<url-pattern>/AdvancedMath</url-pattern>
+		<servlet-name>Gal_Nasdaq</servlet-name>
+		<url-pattern>/Gal_Nasdaq</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -21,6 +21,16 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-mapping>
 	<servlet-name>AdvancedMath</servlet-name>
 	<url-pattern>/AdvancedMath</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>Exercise04</servlet-name>
+	<servlet-class>com.mta.javacourse.Exercise04</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	<servlet-name>Exercise04</servlet-name>
+	<url-pattern>/Exercise04</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>
