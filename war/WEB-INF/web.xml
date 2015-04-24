@@ -5,12 +5,13 @@ xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet>
-		<servlet-name>Gal_Nasdaq</servlet-name>
-		<servlet-class>com.mta.javacourse.Gal_Nasdaq</servlet-class>
+		<servlet-name>Gal_NasdaqServlet</servlet-name>
+		<servlet-class>com.mta.javacourse.Gal_NasdaqServlet</servlet-class>
 	</servlet>
+	
 	<servlet-mapping>
-		<servlet-name>Gal_Nasdaq</servlet-name>
-		<url-pattern>/Gal_Nasdaq</url-pattern>
+		<servlet-name>Gal_NasdaqServlet</servlet-name>
+		<url-pattern>/gal_nasdaqservlet</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -24,13 +25,13 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	
 	<servlet>
-	<servlet-name>Exercise04</servlet-name>
-	<servlet-class>com.mta.javacourse.Exercise04</servlet-class>
+	<servlet-name>StockDetailsServlet</servlet-name>
+	<servlet-class>com.mta.javacourse.StockDetailsServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
-	<servlet-name>Exercise04</servlet-name>
-	<url-pattern>/Exercise04</url-pattern>
+	<servlet-name>StockDetailsServlet</servlet-name>
+	<url-pattern>/StockDetailsServlet</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>
