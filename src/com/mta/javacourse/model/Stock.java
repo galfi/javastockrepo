@@ -1,11 +1,10 @@
-package com.mta.javacourse;
+package com.mta.javacourse.model;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 //data members
-
 public class Stock {
 	
 	private static final int BUY = 0;
@@ -20,7 +19,6 @@ public class Stock {
 	private int recomandation;
 	private int stockQuantity;
 
-
 //constractor
 public Stock(String symbol, float ask, float bid, Date date) {
 	this.symbol = symbol;
@@ -29,8 +27,17 @@ public Stock(String symbol, float ask, float bid, Date date) {
 	this.date = date;
 }
 
-//methods
+//duplicate constructor stock
+public Stock (Stock copyStock){
+	this.symbol = copyStock.getSymbol();
+	this.ask = copyStock.getAsk();
+	this.bid = copyStock.getBid();
+	this.date = copyStock.getDate();
+	this.recomandation = copyStock.getRecomandation();
+	this.stockQuantity = copyStock.getStockQuantity();
+}
 
+//methods
 public String getSymbol() {
 	return symbol;
 }

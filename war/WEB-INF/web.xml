@@ -4,35 +4,6 @@ xmlns="http://java.sun.com/xml/ns/javaee"
 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-	<servlet>
-		<servlet-name>Gal_NasdaqServlet</servlet-name>
-		<servlet-class>com.mta.javacourse.Gal_NasdaqServlet</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>Gal_NasdaqServlet</servlet-name>
-		<url-pattern>/gal_nasdaqservlet</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-	<servlet-name>AdvancedMath</servlet-name>
-	<servlet-class>com.mta.javacourse.AdvancedMath</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-	<servlet-name>AdvancedMath</servlet-name>
-	<url-pattern>/advancedmath</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-	<servlet-name>StockDetailsServlet</servlet-name>
-	<servlet-class>com.mta.javacourse.StockDetailsServlet</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-	<servlet-name>StockDetailsServlet</servlet-name>
-	<url-pattern>/stockdetailsservlet</url-pattern>
-	</servlet-mapping>
 	
 		<servlet>
 	<servlet-name>PortfolioServlet</servlet-name>
@@ -42,6 +13,16 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-mapping>
 	<servlet-name>PortfolioServlet</servlet-name>
 	<url-pattern>/portfolio</url-pattern>
+	</servlet-mapping>
+	
+			<servlet>
+	<servlet-name>PortfolioServlet</servlet-name>
+	<servlet-class>com.mta.javacourse.Servlet.PortfolioServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	<servlet-name>PortfolioServlet</servlet-name>
+	<url-pattern>/portfolioservlet</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>

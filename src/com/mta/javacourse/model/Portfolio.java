@@ -1,6 +1,6 @@
 package com.mta.javacourse.model;
 
-import com.mta.javacourse.Stock;
+import java.util.Date;
 
 public class Portfolio {
 	
@@ -8,31 +8,63 @@ public class Portfolio {
 	
 	private String title;
 	private Stock[] stocks;
-	private int protfolioSize = 0;
-	
-	public Portfolio(){
+	private int portfolioSize;
+
+	public Portfolio (String title){
+		this.title = title;
 		stocks = new Stock[MAX_PROTFOLIO_SIZE];
+		portfolioSize = 0;
 	}
 	
+	//copy portfolio
+	public Portfolio (Portfolio copyPortfolio){
+		this(copyPortfolio.getTitle());
+			
+		for (int i=0 ; i<copyPortfolio.getPortfolioSize() ; i++){
+			this.addStock(new Stock(copyPortfolio.getStockByIndex(i)));
+		}
+	}
+	
+	//add stock to portfolio
 	public void addStock(Stock stocks){
-		if (stocks != null && protfolioSize < MAX_PROTFOLIO_SIZE)
-		{
-			this.stocks[protfolioSize] = stocks;
-			protfolioSize++;
+		if (stocks !=null && portfolioSize < MAX_PROTFOLIO_SIZE){
+			this.stocks[portfolioSize] = stocks;
+			portfolioSize++;
+		}
+	}
+	
+	//remove stock from portfolio
+	public void removeStock(String eraseSymbol){
+		if (stocks[portfolioSize-1].getSymbol().equals(eraseSymbol)){
+			stocks[portfolioSize-1] = null;
+			portfolioSize--;
 		}
 		else{
-			System.out.println("Protfolio is full OR stock is null");
+			for (int i=0 ; i<portfolioSize ; i++){
+				if (this.stocks[i].getSymbol().equals(eraseSymbol)){
+					this.stocks[i] = this.stocks[portfolioSize-1];
+					this.stocks[portfolioSize-1] = null;
+					portfolioSize--;
+				}
+			}
 		}
 	}
 	
+	//get stock by index
+	public Stock getStockByIndex(int index) {
+		if (index < 0 || index >= portfolioSize) {
+			return null;
+		}
+		return stocks[index];
+	}
+	
+	//methods
 	public String getHtmlString(){
 		
-		String ret = new String ("<h1>" + getTitle() + "</h1>");
-		
-		for (int i=0 ; i<protfolioSize; i++){
-			ret += this.stocks[i].getHtmlDescription() + "<br>";
+		String ret = "<h1>" + getTitle() + "</h1>";
+		for (int i = 0; i < portfolioSize; i++) {
+			ret += stocks[i].getHtmlDescription() + "<br>";
 		}
-		
 		return ret;
 	}
 	
@@ -50,6 +82,10 @@ public class Portfolio {
 	
 	public void setTitle(String title){
 		this.title = title;
+	}
+	
+	public int getPortfolioSize() {
+		return portfolioSize;
 	}
 
 }
