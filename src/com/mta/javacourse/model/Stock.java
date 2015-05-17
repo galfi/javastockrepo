@@ -4,19 +4,16 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.mta.javacourse.model.Portfolio.ALGO_RECOMMENDATION;
+
 //data members
 public class Stock {
-	
-	private static final int BUY = 0;
-	private static final int SELL = 1;
-	private static final int REMOVE = 2;
-	private static final int HOLD = 3;
-	
+
 	private String symbol;
 	private float ask;
 	private float bid;
 	private Date date;
-	private int recomandation;
+	private ALGO_RECOMMENDATION recommendation;
 	private int stockQuantity;
 
 //constractor
@@ -33,7 +30,7 @@ public Stock (Stock copyStock){
 	this.ask = copyStock.getAsk();
 	this.bid = copyStock.getBid();
 	this.date = copyStock.getDate();
-	this.recomandation = copyStock.getRecomandation();
+	this.recommendation = copyStock.getRecommendation();
 	this.stockQuantity = copyStock.getStockQuantity();
 }
 
@@ -76,17 +73,17 @@ public String getHtmlDescription() {
 	String dateStr = df.format(getDate());
 	
 	//String ret = "<b>Name: </b>" + getName() + ", <b>Date: </b>" + getDate().getMonth() + "/" + getDate().getDate() + "/" + (1900 + getDate().getYear()) + ", &emsp;<br>Band: </b>" + band.getHtmlDescription();
-	String ret = "<b>stock symbol: </b>" + symbol + "<b>,  ask: </b>" + ask + "<b>,  bid: </b>" + bid + "<b>,  Date: </b>" + dateStr + "<br>";
+	String ret = "<b>stock symbol: </b>" + symbol + "<b>,  ask: </b>" + ask + "<b>,  bid: </b>" + bid + "<b>, quantity: </b>" + stockQuantity + "<b>,  Date: </b>" + dateStr + "<br>";
 	
 	return ret;
 }
 
-public int getRecomandation() {
-	return recomandation;
+public ALGO_RECOMMENDATION getRecommendation() {
+	return recommendation;
 }
 
-public void setRecomandation(int recomandation) {
-	this.recomandation = recomandation;
+public void setRecommendation(ALGO_RECOMMENDATION recommendation) {
+	this.recommendation = recommendation;
 }
 
 public int getStockQuantity() {
@@ -95,22 +92,6 @@ public int getStockQuantity() {
 
 public void setStockQuantity(int stockQuantity) {
 	this.stockQuantity = stockQuantity;
-}
-
-public static int getBuy() {
-	return BUY;
-}
-
-public static int getSell() {
-	return SELL;
-}
-
-public static int getRemove() {
-	return REMOVE;
-}
-
-public static int getHold() {
-	return HOLD;
 }
 
 }
