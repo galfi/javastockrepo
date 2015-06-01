@@ -4,95 +4,109 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.algo.model.StockInterface;
+
 import com.mta.javacourse.model.Portfolio.ALGO_RECOMMENDATION;
 
 //data members
-public class Stock {
+public class Stock implements StockInterface{
 
-	private String symbol;
+	String symbol;
 	private float ask;
 	private float bid;
 	private Date date;
 	private ALGO_RECOMMENDATION recommendation;
 	private int stockQuantity;
-
-//constractor
-public Stock(String symbol, float ask, float bid, Date date) {
-	this.symbol = symbol;
-	this.ask = ask;
-	this.bid = bid;
-	this.date = date;
-}
-
-//duplicate constructor stock
-public Stock (Stock copyStock){
-	this.symbol = copyStock.getSymbol();
-	this.ask = copyStock.getAsk();
-	this.bid = copyStock.getBid();
-	this.date = copyStock.getDate();
-	this.recommendation = copyStock.getRecommendation();
-	this.stockQuantity = copyStock.getStockQuantity();
-}
-
-//methods
-public String getSymbol() {
-	return symbol;
-}
-
-public void setSymbol(String value) {
-	this.symbol = value;
-}
-
-public float getAsk() {
-	return ask;
-}
-
-public void setAsk(float ask) {
-	this.ask = ask;
-}
-
-public float getBid() {
-	return bid;
-}
-
-public void setBid(float bid) {
-	this.bid = bid;
-}
-
-public void setDate(Date date) {
-	this.date = date;
-}
-
-public Date getDate() {
-	return date;
-}
-
-public String getHtmlDescription() {
 	
-	DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-	String dateStr = df.format(getDate());
+	//this c'tor creates a stock object
+	public Stock(String symbol, float ask, float bid, Date date) {
+		super();
+		this.symbol = symbol;
+		this.ask = ask;
+		this.bid = bid;
+		this.date = date;
+		this.stockQuantity = 0;
+	}
+
+	//the copy c'tor copies, given stock object by value
+	public Stock (Stock stock){
+		this(new String (stock.getSymbol()), stock.getAsk(), stock.getBid(), new Date(stock.getDate(). getTime() ));
+	}
 	
-	//String ret = "<b>Name: </b>" + getName() + ", <b>Date: </b>" + getDate().getMonth() + "/" + getDate().getDate() + "/" + (1900 + getDate().getYear()) + ", &emsp;<br>Band: </b>" + band.getHtmlDescription();
-	String ret = "<b>stock symbol: </b>" + symbol + "<b>,  ask: </b>" + ask + "<b>,  bid: </b>" + bid + "<b>, quantity: </b>" + stockQuantity + "<b>,  Date: </b>" + dateStr + "<br>";
+	//create stock c'tor
+	public Stock(){
+		this.symbol = null;
+		this.ask = 0;
+		this.bid = 0;
+		this.date = null;
+		this.stockQuantity = 0;
+	}
 	
-	return ret;
-}
+	//getters and setters
+	
+	//the method prints a stock 
+	public String getHtmlDescription() {
+		SimpleDateFormat df = new SimpleDateFormat("MM/dd/YYYY");
+		String stocksDetails = "<b>Stock symbol</b> = " +getSymbol()+","+""
+								+ "<b> Ask </b> = "+getAsk()+","
+								+ "<b> Bid </b> = "+getBid()+","
+								+ "<b> Date </b> = "+df.format(getDate())+", "
+								+ "<b> Quantity</b> = "+ getStockQuantity();
+		return stocksDetails;
+	}
 
-public ALGO_RECOMMENDATION getRecommendation() {
-	return recommendation;
-}
+	public ALGO_RECOMMENDATION getRecommendation() {
+		return recommendation;
+	}
 
-public void setRecommendation(ALGO_RECOMMENDATION recommendation) {
-	this.recommendation = recommendation;
-}
+	public void setRecommendation(ALGO_RECOMMENDATION recommendation) {
+		this.recommendation = recommendation;
+	}
 
-public int getStockQuantity() {
-	return stockQuantity;
-}
+	public int getStockQuantity() {
+		return stockQuantity;
+	}
 
-public void setStockQuantity(int stockQuantity) {
-	this.stockQuantity = stockQuantity;
-}
+	public void setStockQuantity(int stockQuantity) {
+		this.stockQuantity = stockQuantity;
+	}
+
+	// getters and setters
+	public float getBid(){
+		return bid;
+	}
+		
+	public void setBid(float bid){
+		this.bid = bid;
+	}
+	
+	public String getSymbol(){
+		return symbol;
+	}
+	
+	public void setSymbol(String symbol){
+		this.symbol = symbol;
+	}
+	
+	public float getAsk(){
+		return ask;
+	}
+	
+	public void setAsk(float ask){
+		this.ask = ask;
+	}
+	
+	public Date getDate(){
+		return date;
+	}
+	
+	public void setDate(Date time){
+		this.date = time;
+	}
+	
+	public void setDate(long time){
+		this.date = new Date(time);
+	}
 
 }
 
